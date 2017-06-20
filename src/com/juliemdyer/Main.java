@@ -1,22 +1,50 @@
 package com.juliemdyer;
 import java.util.Scanner;
 
-// COINS EXERCISE
+
+// GUESS A NUMBER
 public class Main {
     public static void main(String[] args) {
         Scanner user_input = new Scanner(System.in);
-        int coinCount = 0;
-        String answer = "";
+        int secret_number = 7;
+        int guess = 0;
 
         do {
-            System.out.printf("You have %s coins. Do you want another?  ", coinCount);
-            answer = user_input.next().toLowerCase();
-            coinCount++;
-        } while (answer.equals("yes"));
-
+            System.out.println("I'm thinking of a number between 1 and 10.");
+            System.out.println("Guess my number:  ");
+            try {
+                guess = Integer.parseInt(user_input.next());
+                if (guess == secret_number) {
+                    System.out.printf("Great job! You guessed my number. Bye!%n");;
+                    break;
+                } else {
+                    System.out.printf("Try again!%n");
+                    continue;
+                }
+            } catch (NumberFormatException e) {
+                System.out.printf("That's not a number. Try again.%n%n");
+            }
+        } while (guess != secret_number);
 
     }
 }
+
+// COINS EXERCISE
+//public class Main {
+//    public static void main(String[] args) {
+//
+//        int coinCount = 0;
+//        String answer = "";
+//
+//        do {
+//            System.out.printf("You have %s coins. Do you want another?  ", coinCount);
+//            answer = user_input.next().toLowerCase();
+//            coinCount++;
+//        } while (answer.equals("yes"));
+//
+//
+//    }
+//}
 
 
 // TIP CALCULATOR EXERCISE
